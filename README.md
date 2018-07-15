@@ -1,8 +1,6 @@
 # Android Web3j OOM解决
-在Android客户端使用Web3j创建钱包、导入钱包时都可能会产生OOM，相关issue在Github上已经有所提及：
-https://github.com/web3j/web3j/issues/299 。这个问题在Web3j 3.0版本是没有的，由于
-新版的Web3j使用spongycastle库替换了lambdaworks库，虽然在效率上提升了速度，但存在Android端
-的兼容性问题。
+在Android客户端使用Web3j创建钱包、导入钱包时都可能会产生OOM，相关issue在Github上已经有所提及：https://github.com/web3j/web3j/issues/299 。这个问题在Web3j 3.0版本是没有的，由于
+新版的Web3j使用spongycastle库替换了lambdaworks库，虽然在效率上提升了速度，但存在Android端的兼容性问题。
 
 本项目代码地址：https://github.com/uncleleonfan/WalletOOM.git
 
@@ -72,6 +70,7 @@ generateFullNewWalletFile里面会调用createStandard创建钱包，使用N_STA
 
 generateLightNewWalletFile会调用createLight来创建一个轻钱包，使用N_LIGHT，P_LIGHT，他们在数值上相对较小，所以
 不会OOM。
+
     public static WalletFile createLight(String password, ECKeyPair ecKeyPair)
             throws CipherException {
         return create(password, ecKeyPair, N_LIGHT, P_LIGHT);
@@ -169,8 +168,7 @@ Keystore如下：
         }
     }
 
-按照以上方法处理之后，就可以解决OOM，但是用户等待的时间回稍微长一点，另外，最好还是添加一下Android平台的libscrpt.so库，大家
-可在本项目的jniLibs中找到。
+按照以上方法处理之后，就可以解决OOM，但是用户等待的时间会稍微长一点，另外，最好还是添加一下Android平台的libscrpt.so库，大家可在本项目的jniLibs中找到。
 
 
 

@@ -1,5 +1,5 @@
 # Android Web3j OOM解决
-在Android客户端使用Web3j创建钱包、导入钱包时都可能会产生OOM，相关issue在Github上已经有所提及：https://github.com/web3j/web3j/issues/299 。这个问题在Web3j 3.0版本是没有的，由于
+在Android客户端使用Web3j创建钱包、导入钱包时都可能会产生OOM，相关issue在Github上已经有所提及：https://github.com/web3j/web3j/issues/299 。这个问题在Web3j 3.0版本以前是没有的，由于
 新版的Web3j使用spongycastle库替换了lambdaworks库，虽然在效率上提升了速度，但存在Android端的兼容性问题。
 
 本项目代码地址：https://github.com/uncleleonfan/WalletOOM.git
